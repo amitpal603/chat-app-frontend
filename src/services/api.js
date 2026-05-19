@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-    baseURL: 'https://chat-app-backend-hs23.onrender.com/api/v1',
+    baseURL: 'https://chat-app-backend-1-5vir.onrender.com/api/v1',
     withCredentials: false, // Set to false to support tab-isolated sessions (avoid sharing cookies across tabs)
 });
 
@@ -38,7 +38,7 @@ API.interceptors.response.use(
                 if (!refreshToken) throw new Error("No refresh token");
 
                 // Attempt to refresh token manually passing the refresh token in body 
-                const response = await axios.post('https://chat-app-backend-hs23.onrender.com/api/v1/auth/refresh-token', { refreshToken }, { withCredentials: true });
+                const response = await axios.post('https://chat-app-backend-1-5vir.onrender.com/api/v1/auth/refresh-token', { refreshToken }, { withCredentials: true });
                 
                 const { accessToken, refreshToken: newRefreshToken } = response.data.data;
                 sessionStorage.setItem('accessToken', accessToken);
